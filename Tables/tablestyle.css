@@ -1,0 +1,26 @@
+table {
+    width: 200px;
+    height: 300px;
+    text-align: center;
+    border: 5px solid green;
+    width: 20%;
+ }
+ td {
+    border: 1px solid red; 
+    border-collapse: collapse;
+    width: 20%;
+}
+
+ tbody {
+    border-collapse: collapse;
+ }
+
+ td:hover {
+    background-color: lightcoral;
+    color: white;
+ }
+ #result {
+    text-align: center;
+    border: 3px solid blue;
+    width: 40%;
+ }
