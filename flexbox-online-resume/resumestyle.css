@@ -1,0 +1,121 @@
+body {
+    background-color:rgb(72, 72, 72);
+    /* border: 3px solid black; */
+}
+
+/* Header Social Media Icons  */
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    margin: 0;
+    padding: 0%;
+    /* border: 2px solid red; */
+}
+
+li :hover {
+    background-color: white;
+}
+/* Main Body */
+
+.main-container {
+ border: 5px solid black;
+ background-color: black;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ width: 80%;
+ margin: auto;
+}
+
+.box {
+    width: 600px;
+    height: 200px;
+    border: 3px solid red;
+}
+
+/* Section 1 */
+/* Section 1 */
+
+.section-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 5px solid tan; */
+}
+.box1-2 {
+    display: flex;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+
+
+img[src="/onlineResume/images/george-carlin.jpg"] {
+/* border: 3px solid red; */
+width: 300px;
+padding: 10px;
+}
+
+#box1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#box1 .text {
+    color: rgb(203, 203, 203);
+    font-size: large;
+    text-align: center;
+    margin: 0;
+    padding: auto;
+}
+#box2 {
+    text-align: center;
+    
+}
+#box2 span {
+    font-size: 18px;
+    font-weight: 700;
+    color:  rgb(203, 203, 203);
+}
+
+#box2 p {
+    color:  rgb(88, 87, 87);
+}
+
+#box3 {
+    width: 1205px;
+    height: 100px;
+    margin: 0%;
+}
+#box3 p {
+    margin: 0%;
+    color:  rgb(88, 87, 87);
+}
+
+/* Section 2 */
+/* Section 2 */
+
+.section2-3 {
+    display: flex;
+    justify-content: center;
+    /* border: 5px solid tan; */
+}  
+
+#section-2 h1, #section-2 h3 {
+    color: rgb(203, 203, 203);
+    font-size: 18px;
+    margin: 1px;;
+}
+#section-2 p {
+    color: rgb(203, 203, 203);
+    margin: 0;
+}
+
+#section-2 {
+    margin: 0;
+    padding: 15px;
+}
