@@ -1,0 +1,76 @@
+body {
+    background-color: #333;
+    color: #fff;
+    border: 4px solid red;
+  }
+  
+  #main_section {
+    padding: 20px;
+    border: 4px solid black;
+  }
+  
+  /* section 1 starts here  */
+  #section1 {
+    display: flex;
+    justify-content: space-between;
+    border: 4px solid tan;
+  }
+  #box1 {
+    display: flex;
+    border: 3px solid red;
+  }
+  
+  #box1 img {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border: 3px solid black;
+    margin-right: 25px;
+  }
+  
+  #box1 div p {
+    font-size: 18px;
+    font-weight: bolder;
+  }
+  
+  ul li {
+    list-style: none;
+  }
+  
+  #personal_info {
+    display: flex;
+  }
+  
+  #personal_info ul:first-child {
+    text-align: right;
+  }
+  
+  #personal_info ul:last-child {
+    padding-left: 5px;
+  }
+  
+  #bio p {
+    margin-top: 0;
+    border: 2px solid red;
+  }
+  
+  /* section 1 ends here  */
+  /* section 2 starts here  */
+
+  
+  #section2 {
+    display: flex;
+    gap: 5px; /*not really needed*/
+    width: 100%;
+    height: 100vh;
+  }
+  
+  #left_column {
+    border: 1px solid green;
+    flex: 75%;
+  }
+  #right_column {
+    border: 1px solid purple;
+    flex: 25%;
+  }
+  
