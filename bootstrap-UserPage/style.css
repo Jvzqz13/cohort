@@ -83,3 +83,30 @@ footer {
     margin-right: auto;
     /* border: 4px solid white; */
 }
+
+/* FOOTER ENDS */
+/* MY ACCOUNT NAV STARTS */
+
+.userPage-info {
+    border: 3px solid red;
+    display: flex;
+    align-items: center;
+    height: 600px;
+    width: 10%;
+    margin-left: 5px;
+}
+.myAccountNav ul {
+    list-style: none;
+    width: 500px;
+}
+
+.myAccountNav li {
+    margin: 1%;
+    padding: 10px;
+    font-weight: 500;
+}
+.myAccountNav .myaccount-list {
+    font-weight: 700;
+    size: 20px;
+}
+
