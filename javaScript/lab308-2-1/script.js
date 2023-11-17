@@ -1,4 +1,4 @@
-//Part 1//
+// Part 1 //
 
 //area = pi * radius * radius;
 const pi = 3.1415;
@@ -20,6 +20,8 @@ if (capPercent >= 0.8) {
 } else {
     console.log("plan it");
 }
+
+// Part 2 // 
 
 
 
