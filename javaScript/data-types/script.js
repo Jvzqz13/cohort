@@ -27,29 +27,29 @@ console.log(!false);
 
 /////// IF .. ELSE //////
 
-let num = 20;
+// let num = 20;
 
-if(num > 0) {
-    console.log("positive");
-} else {
-    console.log("its negative");
-}
+// if(num > 0) {
+//     console.log("positive");
+// } else {
+//     console.log("its negative");
+// }
 
-let age = 0;
+// let age = 0;
 
-if (age >= 18) {
-    console.log("Access Granted");
-} else {
-    console.log("GET OUT 18+ ONLY");
-}
+// if (age >= 18) {
+//     console.log("Access Granted");
+// } else {
+//     console.log("GET OUT 18+ ONLY");
+// }
 
 
-let aNum = 200;
-if( aNum > 0 && aNum > 100) {
-    console.log("its positive");
-} else {
-    console.log("Error");
-}
+// let aNum = 200;
+// if( aNum > 0 && aNum > 100) {
+//     console.log("its positive");
+// } else {
+//     console.log("Error");
+// }
 
 
 let grade = 55;
