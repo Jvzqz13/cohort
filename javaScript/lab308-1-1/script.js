@@ -1,3 +1,5 @@
+///////////////////////// PART 1 ///////////////////////// 
+
 // The initial numbers that must be verified.
 const n1 = 10;
 const n2 = 15;
@@ -20,20 +22,21 @@ console.log(isTwoOdd);
 // Check three: no number larger than 25
 // This time, we use the OR operator to check
 // if ANY of the numbers is larger than 25.
-const isOver25 = n1 > 25 || n2 > 25 || n3 > 25 || n4 > 25;
-console.log(isOver25);
+const isUnder25 = n1 < 25 && n2 < 25 && n3 < 25 && n4 < 25;
+console.log(isUnder25);
 
 
 // Divisble by 5
 const isDiv5 = (n1 / 5) + (n2 / 5) + (n3 / 5) + (n4 / 5) >= 0;
 console.log(isDiv5); 
+let divide = n1 % 5;
 
 // check is n1 is larger than n4
 const isLargerThanLast = n1 > n4;
 console.log(isLargerThanLast);
 
 //weird math equation
-const mathProblem = ((n1 - n2) * n3) % n4;
+const mathProblem = ((n2 - n1) * n3) % n4;
 console.log(mathProblem);
 
 
@@ -48,10 +51,10 @@ const isUnique = n1 != n2 && n1 != n3 && n1 != n4 && n2 != n3 && n2 != n4 && n3 
 // for convenience. Note how we negate isOver25 using
 // the ! operator. We could also have tested for 
 // "isUnder25" as an alternative.
-const isValid = isSum50 && isTwoOdd && !isOver25 && isUnique;
+const isValid = isSum50 && isTwoOdd && isUnder25 && isUnique;
 
 // Finally, log the results.
-console.log(isValid);
+console.log(`The four numbers are valid according to the provided criteria: ${isValid}.`);
 
 // Here's another example of how this COULD be done,
 // but it SHOULD NOT be done this way. As programmers,
