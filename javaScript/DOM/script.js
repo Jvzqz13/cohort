@@ -42,3 +42,11 @@ for (let i = 0; i < 5; i++) {
   ol.appendChild(document.createElement("li"));
   ul.appendChild(document.createElement("li"));
 }
+
+//create anchor tag
+const anchorEl = document.createElement("a");
+anchorEl.textContent = "Google";
+anchorEl.setAttribute("href", "https://www.google.com")
+anchorEl.style.fontSize = ("40px")
+div.appendChild(anchorEl);
+
