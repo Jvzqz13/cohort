@@ -57,6 +57,11 @@ class Character {
 // robin.companion.companion.roll();
 
 class Adventurer extends Character {
+    companion = {
+        name: "",
+        type: "",
+    }
+
     constructor (name, role, health) {
       super(name, health);
 
@@ -72,7 +77,26 @@ class Adventurer extends Character {
       console.log(`${this.name} is scouting ahead...`);
       super.roll();
     }
+
+  }
+
+  class Companion extends Character {
+    constructor(name, type, inventory){
+        super(name, inventory)
+        this.type = type;
+    }
   }
 
   const jack = new Adventurer ("Jack", "Theif")
   console.log(jack);
+
+
+  
+  const bunny = new Companion ("Bunny","Rabbit")
+  console.log(bunny);
+
+  const lenny = new Adventurer("lenny", "guard")
+  const benny = new Companion("benny", "rat")
+  lenny.companion = benny;
+  
+  console.log(lenny);
