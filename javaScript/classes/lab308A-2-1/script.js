@@ -31,9 +31,11 @@
     
 // //Character Class 
 class Character {
+    static MAX_HEALTH = 100;
+    
     constructor (name) {
       this.name = name;
-      this.health = 100;
+      this.health = 80;
       this.inventory = [];
     }
     roll (mod = 0){ 
@@ -62,14 +64,22 @@ class Adventurer extends Character {
         type: "",
     }
 
-    constructor (name, role, health) {
-      super(name, health);
+    static ROLES = ['Fighter', 'Healer', 'Wizard', 'Fairy', 'Archer','Theif']
+    
+    constructor (name, role, health,) {
+        super(name, health,);
+        this.role = role;
+        this.inventory.push("bedroll", "50 gold coins");
 
-      // Adventurers have specialized roles.
-      this.role = role;
+        function isValidRole(role){
+            return Adventurer.ROLES.includes(role);
+        }
 
-      // Every adventurer starts with a bed and 50 gold coins.
-      this.inventory.push("bedroll", "50 gold coins");
+        // console.log(isValidRole('Fighter'));
+
+        if(!isValidRole(role)){
+            throw new Error("Invalid Role")
+        }
     }
     
     // Adventurers have the ability to scout ahead of them.
@@ -95,7 +105,7 @@ class Adventurer extends Character {
   const bunny = new Companion ("Bunny","Rabbit")
   console.log(bunny);
 
-  const lenny = new Adventurer("lenny", "guard")
+  const lenny = new Adventurer("lenny", "Healer")
   const benny = new Companion("benny", "rat")
   lenny.companion = benny;
   
