@@ -31,13 +31,11 @@ const menuLinks = [
 ];
 
 const mainEl = document.querySelector("main");
-
-mainEl.style.backgroundColor = "#4a4e4d";
 mainEl.style.marginTop = "-50%";
-
-// mainEl.innerHTML = `<h1> DOM Manipulation </h1>`;
-
+mainEl.style.backgroundColor = "#4a4e4d";
 mainEl.classList.add("flex-ctr");
+// mainEl.innerHTML = `<h1> SBA 316 The DOM </h1>`;
+
 
 const topMenuEl = document.getElementById("top-menu");
 topMenuEl.style.height = "100%";
@@ -53,12 +51,39 @@ menuLinks.forEach((link) => {
   topMenuEl.appendChild(anchorEl);
 });
 
+
 const subMenuEl = document.getElementById("sub-menu");
 subMenuEl.style.height = "10%";
 subMenuEl.style.backgroundColor = "grey";
 subMenuEl.classList.add("flex-around");
 subMenuEl.style.position = "absolute";
 subMenuEl.style.top = "0";
+
+const form = document.getElementById("inputForm");
+form.style.display = 'none'
+
+const button = document.getElementById("clickMe");
+
+button.addEventListener("click", (e) => {
+  e.preventDefault();
+  form.style.display = (form.style.display === 'none') ? 'block' : 'none';
+});
+
+function buildSubmenu(subLinks) {
+  // Clear current contents of subMenuEl
+  subMenuEl.innerHTML = "";
+  //creating sublink element
+  subLinks.forEach((link) => {
+    const subLinkElement = document.createElement("a");
+    subLinkElement.href = link.href;
+    subLinkElement.textContent = link.text;
+
+    // Append the new element to subMenuEl
+    subMenuEl.appendChild(subLinkElement);
+  });
+}
+
+
 
 //selects all <a>
 const topMenuLinks = document.querySelectorAll("a");
@@ -91,7 +116,7 @@ topMenuEl.addEventListener("click", (e) => {
   //unhides submenu links
   if (clickedLink && clickedLink.subLinks) {
     subMenuEl.style.top = "5%";
-    subMenuEl.style.width = "100%"
+    subMenuEl.style.width = "100%";
     buildSubmenu(clickedLink.subLinks);
   } else {
     subMenuEl.style.top = "0";
@@ -109,19 +134,7 @@ topMenuEl.addEventListener("click", (e) => {
   });
 });
 
-function buildSubmenu(subLinks) {
-  // Clear current contents of subMenuEl
-  subMenuEl.innerHTML = "";
-  //creating sublink element
-  subLinks.forEach((link) => {
-    const subLinkElement = document.createElement("a");
-    subLinkElement.href = link.href;
-    subLinkElement.textContent = link.text;
 
-    // Append the new element to subMenuEl
-    subMenuEl.appendChild(subLinkElement);
-  });
-}
 
 subMenuEl.addEventListener("click", (e) => {
   e.preventDefault();
@@ -130,20 +143,3 @@ subMenuEl.addEventListener("click", (e) => {
   console.log("Submenu item clicked:", e.target.textContent);
   mainEl.innerHTML = `<h1> ${e.target.textContent} </h1>`;
 });
-
-
-const form = document.getElementById("inputForm");
-form.style.display = 'none'
-
-button = document.getElementById("clickMe");
-
-button.addEventListener("click", (e) => {
-  e.preventDefault();
-  if(form.style.display === 'none'){
-    form.style.display = 'block'
-  } 
-  else if (form.style.display === 'block'){
-    form.style.display = 'none';
-  }
-  
-})
