@@ -1,0 +1,23 @@
+
+<label>
+    Input:
+    <input type="text" id="myInput"  />
+</label>
+
+
+<button id="myBtn" type="button">Test it Out</button>
+
+<script>
+let request;
+
+request.open("POST", "https://jsonplaceholder.typicode.com/todos");
+
+request.setRequestHeader(
+    "Content-Type",
+    "application/x-www-form-urlencoded"
+);
+
+let inputVal = document.getElementById("myInput").value;
+let encodedVal = encodeURIComponent(inputVal);
+request.send(`data=${encodedVal}`);
+</script>
