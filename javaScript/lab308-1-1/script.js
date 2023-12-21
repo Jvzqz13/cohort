@@ -114,3 +114,6 @@ console.log(`At 60MPH, it will take ${hoursAt60} hours to travel 1500miles`);
 
 const hoursAt75 = totalDistance / mph3;
 console.log(`At 75MPH, it will take ${hoursAt75} hours to travel 1500miles`);
+
+
+console.log(null || 'string');
