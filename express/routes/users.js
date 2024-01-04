@@ -1,20 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-router
-    .route("/:id").get((req, res) => {
-        console.log(req.user);
-    res.send(`GET user ${req.params.id}`)
-})
-.put((req, res) => {
-    res.send(`UPDATE user ${req.params.id}`)
-})
-.delete((req, res) => {
-    res.send(`DELETE user ${req.params.id}`)
-})
-
-
 router.get('/', (req, res) => {
     res.send("User List")
 })
@@ -27,13 +13,22 @@ router.get('/new', (req, res) => {
     res.send('User New Form')
 })
 
-const users = [{name: "Jorge"}, {name: "Ava"}]
 
-router.param("id", (req, res, next, id) => {
-    // console.log(id);
-    req.user = users[id]
-    next();
-})
+router
+    .route("/:id")
+
+    .get((req, res) => {
+        console.log(req.params);
+    res.send(`GET user ${req.params.id}`)
+    })
+    
+    .put((req, res) => {
+        res.send(`UPDATE user ${req.params.id}`)
+    })
+    
+    .delete((req, res) => {
+        res.send(`DELETE user ${req.params.id}`)
+    })
 
 // router.get('/:id', (req, res) => {
 //     res.send(`GET user ${req.params.id}`)

@@ -1,28 +1,41 @@
 const express = require("express")
 const app = express();
-const port = 3000;
+const PORT = 3000;
+const morgan = require("morgan");
 
-app.listen(port)
-app.use(express.static("public"))
-app.set('view engine', 'ejs')
-app.use(logger)
+app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}`);
+})
+
+app.use(express.static("public"));
+app.set('view engine', 'ejs');
+app.use(morgan('dev'));
+app.use(logger);
 
 
-
+// This was code used for the View Engine
 // app.get('/',(req, res) => {
 //     console.log('Here');
 //     res.render("index", {text: "This is coming from index js"})
     
 // })
 
+app.get('/download-img', (req, res) => {
+    res.download("./images/GWN.jpeg")
+})
 
-// imported from Routes folder and has / and /new
+// imported from Routes folder
 const userRouter = require('./routes/users');
 
 // makes this so it can use /users
 app.use('/users',userRouter)
 
 function logger(req, res, next){
-    console.log(req.originalUrl);
+    console.log(`this is the logger: ${req.originalUrl}`);
     next();
 }
+
+//error middleware
+app.use((err, req, res, next) => {
+    res.status(400).send(error.message);
+})
