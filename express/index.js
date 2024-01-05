@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express();
-const PORT = 3000;
+const PORT = 3000 || process.env.PORT; 
 const morgan = require("morgan");
 
 app.listen(PORT, () => {
@@ -37,5 +37,5 @@ function logger(req, res, next){
 
 //error middleware
 app.use((err, req, res, next) => {
-    res.status(400).send(error.message);
+    res.status(400).send(err.message);
 })
