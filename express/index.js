@@ -7,18 +7,20 @@ app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
 })
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(logger);
 
-
 // This was code used for the View Engine
-// app.get('/',(req, res) => {
-//     console.log('Here');
-//     res.render("index", {text: "This is coming from index js"})
-    
-// })
+app.get('/',(req, res) => {
+    res.render('index', { title: 'Home' });
+})
+
+app.get('/about-express',(req, res) => {
+    res.render('about-express')
+})
+
 
 app.get('/download-img', (req, res) => {
     res.download("./images/GWN.jpeg")
