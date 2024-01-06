@@ -21,7 +21,7 @@ app.get('/about-express',(req, res) => {
     res.render('about-express')
 })
 
-
+// downloading img from public folder
 app.get('/download-img', (req, res) => {
     res.download("./images/GWN.jpeg")
 })
