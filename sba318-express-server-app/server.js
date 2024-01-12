@@ -4,13 +4,18 @@ const PORT = 3000;
 const morgan = require("morgan");
 
 
+
 //Importing Routes
 const users = require("./routes/users");
 const products = require("./routes/products");
 const reviews = require("./routes/reviews");
 
+const error404 = require("./utilities/middlewares/error404")
+
+// Middleware
 app.use(morgan('dev'));
 app.set('view engine', 'ejs');
+
 
 
 //Json body Parser
@@ -28,6 +33,8 @@ app.get('/', (req, res) => {
 })
 
 
+// 404 Error
+app.use(error404);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
