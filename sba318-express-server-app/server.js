@@ -16,11 +16,13 @@ const error404 = require("./utilities/middlewares/error404")
 app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 
-
-
 //Json body Parser
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+//view engine
+app.set("view engine", "ejs")
+app.use("/public", express.static('public'))
 
 //Using Routes
 app.use("/users", users);
@@ -29,7 +31,7 @@ app.use("/reviews", reviews);
 
 
 app.get('/', (req, res) => {
-    res.send("its works")
+    res.render("index")
 })
 
 
