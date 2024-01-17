@@ -10,8 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(morgan('dev'));
 
-app.use('/grades', grades)
 app.use(express.json());
+app.use('/grades', grades)
 
 // console.log(process.env.ATLAS_URI);
 
