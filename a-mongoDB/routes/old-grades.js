@@ -6,7 +6,7 @@ const router = express.Router();
 
 //Use new ObjectID only for _id made by Mongodb
 
-// GET Single id Grade
+// GET Single id Grade --
 router.get('/:id', async (req, res) => {
     const collection = await db.collection('grades')
     const query = {_id: new ObjectId(req.params.id)}
@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
     else res.send(result).status(200);
 })
 
-// POST Create a single grade entry 
+// POST Create a single grade entry --
 router.post("/", async (req, res) =>  {
     let collection = await db.collection("grades");
     let newDocument= req.body;
@@ -30,7 +30,7 @@ router.post("/", async (req, res) =>  {
     res.send(result).status(204);
 })
 
-//PATCH - Add a score to a grade entry
+//PATCH - Add a score to a grade entry --
 router.patch("/:id/add", async (req, res) => {
     let collection = await db.collection("grades");
     let query = {_id: new ObjectId(req.params.id)};
@@ -42,7 +42,7 @@ router.patch("/:id/add", async (req, res) => {
     else res.send(result).status(200)
 })
 
-//Remove a score from a grade entry 
+//Remove a score from a grade entry --
 router.patch("/id/remove", async (req, res) => {
     let collection = db.collection("grades");
     let query = {_id: new ObjectId(req.params.id)};
@@ -52,7 +52,7 @@ router.patch("/id/remove", async (req, res) => {
     })
 });
 
-//DELETE a single grade entry
+//DELETE a single grade entry --
 router.delete("/:id", async(req, res) => {
     let collection = db.collection("grades");
     let query = {_id: new ObjectId(req.params.id)};
@@ -63,7 +63,7 @@ router.delete("/:id", async(req, res) => {
 })
 
 
-// POST rename fields for backwards compatibilty
+// POST rename fields for backwards compatibilty --
 router.post("/", async (req, res) => {
     const collection = await db.collection("grades");
     const newDocument = req.body;
@@ -79,7 +79,7 @@ router.post("/", async (req, res) => {
 })
 
 
-//GET a Students grade data
+//GET a Students grade data --
 router.get("/student/:id", async (req, res) => {
 
     res.redirect(`/grades/learner/${req.params.id}`);
@@ -87,7 +87,7 @@ router.get("/student/:id", async (req, res) => {
 })
 
 
-// GET /learner/:id
+// GET /learner/:id --
 router.get("/learner/:id", async (req, res) => {
     let collection = await db.collection("grades")
     let query = { learner_id: Number(req.params.id)};
@@ -101,7 +101,7 @@ router.get("/learner/:id", async (req, res) => {
     else res.send(result).status(200);
 });
 
-//DELETE learners grade data
+//DELETE learners grade data --
 router.delete("/learner/:id", async (req, res) => {
     let collection = await db.collection("grades");
     let query = { learner_id: Number(req.params.id)};

@@ -4,7 +4,6 @@ import express from 'express';
 import morgan from 'morgan'; 
 
 import gradesRoutes from './routes/grades.js';
-// import grades from './routes/grades.js';
 
 const app = express(); 
 const PORT = process.env.PORT || 3000;
@@ -12,9 +11,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/grades', gradesRoutes)
-// app.use('/grades', grades)
-
-// console.log(process.env.ATLAS_URI);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the API.");
