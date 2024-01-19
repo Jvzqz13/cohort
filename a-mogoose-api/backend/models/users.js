@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
+
+const SALT_ROUNDS = 8
 
 const usersSchema = new mongoose.Schema({
     username: {
@@ -30,6 +33,28 @@ const usersSchema = new mongoose.Schema({
         type: String,
         enum: [ "IT", "UX", "DEV", "HR"]
     }
+}, {timestamps: true,
+    toJSON:{ 
+        transform: function (doc, retDoc){
+            delete retDoc.password; //removes password from the json doc
+            return retDoc;
+        }
+    }
+
+});
+
+usersSchema.index({email: 1});
+usersSchema.index({username: 1});
+
+usersSchema.pre('save', async function(next){
+    // if password has not been change, continue 
+    if(!this.isModified("password")) return next();
+
+    this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
+    return next();
 })
+
+
+
 
 export default mongoose.model('User', usersSchema);
