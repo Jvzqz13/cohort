@@ -52,8 +52,7 @@ usersSchema.pre('save', async function(next){
 
     this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
     return next();
-})
-
+}) 
 
 
 
