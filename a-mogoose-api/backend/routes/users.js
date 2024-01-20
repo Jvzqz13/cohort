@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import User from '../models/users.js';
-
+import Profile from '../models/profiles.js';
 
 const router = new Router(); 
 
@@ -28,7 +28,10 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const user = await User.create(req.body);
+        await Profile.create({user_id: user._id})
+
         res.status(201).json(user);
+        
     } catch (e){
         console.log(e);
     }
